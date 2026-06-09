@@ -1,0 +1,944 @@
+/* ==========================================================
+   STYLE.CSS - Hoja de estilos global
+   Nexus Prime | Yusef Haitak Martínez
+   ----------------------------------------------------------
+   1. Variables (:root)
+   2. Base del documento
+   3. Foco / accesibilidad
+   4. Contenedor
+   5. Botones
+   6. Secciones
+   7. Cabecera / navbar
+   8. Footer
+   9. Portada (hero, confianza, tarjetas, cierre)
+   10. Páginas internas
+   11. Responsive
+   ========================================================== */
+
+
+/* ==========================================================
+   1. VARIABLES
+   ========================================================== */
+:root {
+
+    /* Paleta corporativa */
+    --azul-marino: #1a3c5a;
+    --azul-marino-claro: #2c5a85;
+
+    /* Cobre: solo como fondo de botón con texto blanco (ratio 4.5:1) */
+    --cobre: #b87333;
+    --cobre-hover: #a5642c;
+
+    /* Fondos */
+    --blanco-hueso: #f5f5f5;
+    --blanco-puro: #ffffff;
+
+    /* Textos */
+    --texto-principal: #1a3c5a;
+    --texto-secundario: #5a6b7a;
+    --texto-claro: #ffffff;
+
+    /* Bordes y sombras */
+    --color-borde: #e1e5e9;
+    --sombra-suave: 0 2px 8px rgba(26, 60, 90, 0.08);
+    --sombra-media: 0 6px 20px rgba(26, 60, 90, 0.12);
+
+    /* Tipografías */
+    --fuente-titulos: 'Outfit', 'Trebuchet MS', sans-serif;
+    --fuente-texto: 'Manrope', 'Segoe UI', sans-serif;
+
+    /* Escala tipográfica */
+    --fs-h1: 2.5rem;
+    --fs-h2: 2rem;
+    --fs-h3: 1.375rem;
+    --fs-base: 1rem;
+    --fs-small: 0.875rem;
+
+    /* Espaciado */
+    --esp-xs: 0.5rem;
+    --esp-sm: 1rem;
+    --esp-md: 2rem;
+    --esp-lg: 4rem;
+
+    /* Otros */
+    --radio-borde: 6px;
+    --ancho-maximo: 1200px;
+    --transicion: 0.3s ease;
+}
+
+
+/* ==========================================================
+   2. BASE DEL DOCUMENTO
+   ========================================================== */
+body {
+    font-family: var(--fuente-texto);
+    font-size: var(--fs-base);
+    color: var(--texto-principal);
+    background-color: var(--blanco-hueso);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--texto-principal);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p {
+    margin-bottom: var(--esp-sm);
+    color: var(--texto-secundario);
+}
+
+main a:not(.btn) {
+    color: var(--azul-marino);
+    transition: color var(--transicion);
+}
+
+main a:not(.btn):hover {
+    color: var(--azul-marino-claro);
+    text-decoration: underline;
+}
+
+
+/* ==========================================================
+   3. FOCO / ACCESIBILIDAD
+   ========================================================== */
+
+/* El atributo hidden debe ocultar siempre, aunque la clase
+   del elemento defina otro display */
+[hidden] {
+    display: none !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--cobre);
+    outline-offset: 2px;
+}
+
+
+/* ==========================================================
+   4. CONTENEDOR
+   ========================================================== */
+.contenedor {
+    width: 100%;
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding-left: var(--esp-sm);
+    padding-right: var(--esp-sm);
+}
+
+
+/* ==========================================================
+   5. BOTONES
+   ========================================================== */
+.btn {
+    display: inline-block;
+    font-family: var(--fuente-titulos);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    transition: background-color var(--transicion), transform var(--transicion);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Primario: fondo cobre + texto blanco */
+.btn-primario {
+    background-color: var(--cobre);
+    color: var(--texto-claro);
+}
+
+.btn-primario:hover {
+    background-color: var(--cobre-hover);
+}
+
+/* Secundario: fondo azul marino + texto blanco */
+.btn-secundario {
+    background-color: var(--azul-marino);
+    color: var(--texto-claro);
+}
+
+.btn-secundario:hover {
+    background-color: var(--azul-marino-claro);
+}
+
+
+/* ==========================================================
+   6. SECCIONES
+   ========================================================== */
+.seccion {
+    padding-top: var(--esp-lg);
+    padding-bottom: var(--esp-lg);
+}
+
+.seccion-titulo {
+    text-align: center;
+    margin-bottom: var(--esp-md);
+}
+
+
+/* ==========================================================
+   7. CABECERA / NAVBAR
+   ========================================================== */
+.cabecera {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--blanco-puro);
+    border-bottom: 1px solid var(--color-borde);
+    box-shadow: var(--sombra-suave);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: var(--esp-sm);
+}
+
+.logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--esp-md);
+}
+
+.nav-links a {
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    color: var(--azul-marino);
+    padding: var(--esp-xs) 0;
+    transition: color var(--transicion);
+}
+
+.nav-links a:hover {
+    color: var(--cobre-hover);
+}
+
+/* Enlace de Contacto como botón destacado */
+.nav-links .btn-contacto {
+    background-color: var(--azul-marino);
+    color: var(--texto-claro);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radio-borde);
+}
+
+.nav-links .btn-contacto:hover {
+    background-color: var(--azul-marino-claro);
+    color: var(--texto-claro);
+}
+
+/* Botón hamburguesa: oculto en escritorio, visible en móvil */
+.menu-hamburguesa {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    color: var(--azul-marino);
+    cursor: pointer;
+    padding: var(--esp-xs);
+}
+
+
+/* ==========================================================
+   8. FOOTER
+   ========================================================== */
+.footer {
+    background-color: var(--azul-marino);
+    color: var(--texto-claro);
+    padding-top: var(--esp-lg);
+    padding-bottom: var(--esp-md);
+}
+
+.footer-contenido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--esp-md);
+    max-width: var(--ancho-maximo);
+    margin: 0 auto;
+    padding: 0 var(--esp-sm);
+}
+
+.footer-columna h4 {
+    font-family: var(--fuente-titulos);
+    color: var(--texto-claro);
+    margin-bottom: var(--esp-sm);
+}
+
+.footer-columna ul li {
+    margin-bottom: var(--esp-xs);
+}
+
+.footer-columna a {
+    color: #c5d2dd;
+    font-size: var(--fs-small);
+    transition: color var(--transicion);
+}
+
+.footer-columna a:hover {
+    color: var(--texto-claro);
+}
+
+.footer-marca {
+    text-align: center;
+    margin-top: var(--esp-md);
+    padding-top: var(--esp-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: var(--fs-small);
+    color: #c5d2dd;
+}
+
+
+/* ==========================================================
+   9. PORTADA
+   ========================================================== */
+
+/* --- Hero --- */
+.hero {
+    background-color: var(--azul-marino);
+    background-image: linear-gradient(rgba(26, 60, 90, 0.85), rgba(26, 60, 90, 0.85)), url('../../img/hero/hero.webp');
+    background-size: cover;
+    background-position: center;
+    color: var(--texto-claro);
+    text-align: center;
+    padding: var(--esp-lg) var(--esp-sm);
+}
+
+.hero-contenido {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    color: var(--texto-claro);
+    margin-bottom: var(--esp-sm);
+}
+
+.hero-subtitulo {
+    color: #d4dde4;
+    font-size: 1.125rem;
+    margin-bottom: var(--esp-md);
+}
+
+/* --- Bloque de confianza --- */
+.confianza-lista {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--esp-md);
+    text-align: center;
+}
+
+.confianza-lista li {
+    flex: 1;
+}
+
+.confianza-lista h3 {
+    margin-bottom: var(--esp-xs);
+}
+
+/* --- Grid de tarjetas (servicios y productos) --- */
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--esp-md);
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--esp-md);
+    box-shadow: var(--sombra-suave);
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-media);
+}
+
+.tarjeta h3 {
+    margin-bottom: var(--esp-xs);
+}
+
+/* El botón se separa del texto y queda anclado al fondo de la tarjeta */
+.tarjeta .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* --- Tarjeta de producto --- */
+.tarjeta-producto img {
+    border-radius: var(--radio-borde);
+    margin-bottom: var(--esp-sm);
+}
+
+/* --- Alterna el fondo entre secciones --- */
+.productos {
+    background-color: var(--blanco-puro);
+}
+
+/* --- Pre-footer / cierre --- */
+.cierre {
+    background-color: var(--azul-marino-claro);
+    color: var(--texto-claro);
+    text-align: center;
+    padding: var(--esp-lg) var(--esp-sm);
+}
+
+.cierre h2 {
+    color: var(--texto-claro);
+    margin-bottom: var(--esp-xs);
+}
+
+.cierre p {
+    color: #d4dde4;
+    margin-bottom: var(--esp-md);
+}
+
+
+/* ==========================================================
+   10. PÁGINAS INTERNAS
+   ========================================================== */
+
+/* --- Encabezado de página --- */
+.cabecera-pagina {
+    background-color: var(--blanco-puro);
+    border-bottom: 1px solid var(--color-borde);
+    padding: var(--esp-lg) var(--esp-sm);
+    text-align: center;
+}
+
+.cabecera-pagina h1 {
+    margin-bottom: var(--esp-xs);
+}
+
+.cabecera-pagina p {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* --- Listado de servicios --- */
+.lista-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--esp-md);
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--esp-md);
+    box-shadow: var(--sombra-suave);
+}
+
+.servicio h2 {
+    font-size: var(--fs-h3);
+    margin-bottom: var(--esp-xs);
+}
+
+.servicio-detalles {
+    margin: var(--esp-sm) 0;
+}
+
+.servicio-detalles li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: var(--esp-xs);
+    color: var(--texto-secundario);
+    font-size: var(--fs-small);
+}
+
+/* Marca de lista en cobre */
+.servicio-detalles li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: var(--cobre);
+    font-weight: 700;
+}
+
+.servicio .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* --- Catálogo de tienda: filtros + grid --- */
+.catalogo {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: var(--esp-md);
+    align-items: start;
+}
+
+/* Panel lateral de filtros */
+.filtros {
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--esp-md);
+    box-shadow: var(--sombra-suave);
+}
+
+.filtro-grupo {
+    margin-bottom: var(--esp-md);
+}
+
+.filtro-grupo:last-child {
+    margin-bottom: 0;
+}
+
+.filtro-grupo label {
+    display: block;
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    font-size: var(--fs-small);
+    margin-bottom: var(--esp-xs);
+}
+
+.filtro-grupo input,
+.filtro-grupo select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    background-color: var(--blanco-hueso);
+}
+
+/* Etiqueta de categoría dentro de la tarjeta de producto */
+.producto-categoria {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: var(--fs-small);
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--esp-xs);
+}
+
+.producto-precio {
+    font-family: var(--fuente-titulos);
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    color: var(--texto-principal);
+    margin-bottom: var(--esp-xs);
+}
+
+/* Indicador de stock con código de color */
+.producto-stock {
+    font-size: var(--fs-small);
+    font-weight: 600;
+    margin-bottom: var(--esp-sm);
+}
+
+.stock-disponible { color: #2e7d32; }
+.stock-pedido     { color: #b8860b; }
+.stock-agotado    { color: #c0392b; }
+
+/* Mensaje cuando el filtrado no devuelve productos */
+.sin-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--esp-md);
+    color: var(--texto-secundario);
+}
+
+/* --- Ficha de detalle --- */
+.migas {
+    padding: var(--esp-md) 0 0;
+    font-size: var(--fs-small);
+    color: var(--texto-secundario);
+}
+
+.migas a {
+    color: var(--azul-marino);
+}
+
+.migas span {
+    margin: 0 var(--esp-xs);
+}
+
+/* Bloque superior: galería + información */
+.ficha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--esp-lg);
+    padding: var(--esp-md) 0 var(--esp-lg);
+}
+
+/* Galería de imágenes */
+.galeria-principal {
+    width: 100%;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    margin-bottom: var(--esp-sm);
+}
+
+.galeria-miniaturas {
+    display: flex;
+    gap: var(--esp-sm);
+}
+
+.miniatura {
+    flex: 1;
+    padding: 0;
+    border: 2px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color var(--transicion);
+}
+
+.miniatura:hover {
+    border-color: var(--azul-marino-claro);
+}
+
+/* Miniatura activa marcada en cobre */
+.miniatura.activa {
+    border-color: var(--cobre);
+}
+
+/* Información del producto */
+.ficha-info h1 {
+    margin: var(--esp-xs) 0;
+}
+
+.ficha-referencia {
+    font-size: var(--fs-small);
+    color: var(--texto-secundario);
+    margin-bottom: var(--esp-md);
+}
+
+/* Bloque de precio */
+.ficha-precio {
+    margin-bottom: var(--esp-sm);
+}
+
+.precio-base {
+    font-family: var(--fuente-titulos);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--texto-principal);
+}
+
+.precio-etiqueta {
+    font-size: var(--fs-small);
+    color: var(--texto-secundario);
+    margin-left: var(--esp-xs);
+}
+
+.precio-iva {
+    display: block;
+    font-size: var(--fs-small);
+    color: var(--texto-secundario);
+    margin-top: 0.25rem;
+}
+
+.ficha-descripcion {
+    margin: var(--esp-md) 0;
+}
+
+/* Botones de acción de la ficha */
+.ficha-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--esp-sm);
+}
+
+/* Tabla de especificaciones */
+.ficha-especificaciones {
+    padding-bottom: var(--esp-lg);
+}
+
+.ficha-especificaciones h2 {
+    margin-bottom: var(--esp-md);
+}
+
+.ficha-especificaciones table {
+    width: 100%;
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+}
+
+.ficha-especificaciones th,
+.ficha-especificaciones td {
+    text-align: left;
+    padding: 0.75rem var(--esp-sm);
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.ficha-especificaciones tr:last-child th,
+.ficha-especificaciones tr:last-child td {
+    border-bottom: none;
+}
+
+.ficha-especificaciones th {
+    width: 35%;
+    font-family: var(--fuente-titulos);
+    color: var(--texto-principal);
+    background-color: var(--blanco-hueso);
+}
+
+.ficha-especificaciones td {
+    color: var(--texto-secundario);
+}
+
+.ficha-descarga {
+    margin-top: var(--esp-md);
+}
+
+/* --- Página Nosotros --- */
+.empresa-intro {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.empresa-intro h2 {
+    margin-bottom: var(--esp-sm);
+}
+
+/* --- Página de soporte --- */
+.soporte-cta {
+    text-align: center;
+    margin-top: var(--esp-md);
+}
+
+.soporte-faq {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--esp-md);
+}
+
+.faq-item {
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--color-borde);
+    border-left: 4px solid var(--cobre);
+    border-radius: var(--radio-borde);
+    padding: var(--esp-md);
+    box-shadow: var(--sombra-suave);
+}
+
+.faq-item h3 {
+    font-size: var(--fs-base);
+    margin-bottom: var(--esp-xs);
+}
+
+.faq-item p {
+    margin-bottom: 0;
+}
+
+/* --- Página de contacto --- */
+.contacto-bloque {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--esp-lg);
+    align-items: start;
+}
+
+.contacto-formulario h2,
+.contacto-datos h2,
+.contacto-confirmacion h2 {
+    font-size: var(--fs-h3);
+    margin-bottom: var(--esp-md);
+}
+
+/* Campos del formulario */
+.campo {
+    margin-bottom: var(--esp-md);
+}
+
+.campo label {
+    display: block;
+    font-family: var(--fuente-titulos);
+    font-weight: 600;
+    font-size: var(--fs-small);
+    margin-bottom: var(--esp-xs);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    background-color: var(--blanco-puro);
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+/* Casilla de aceptación de políticas */
+.campo-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--esp-xs);
+}
+
+.campo-checkbox input {
+    width: auto;
+    margin-top: 0.25rem;
+}
+
+.campo-checkbox label {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-family: var(--fuente-texto);
+    color: var(--texto-secundario);
+}
+
+/* Mensaje de error de validación (lo mostrará JavaScript) */
+.campo-error {
+    display: block;
+    color: #c0392b;
+    font-size: var(--fs-small);
+    margin-top: 0.25rem;
+}
+
+.campo input.invalido,
+.campo select.invalido,
+.campo textarea.invalido {
+    border-color: #c0392b;
+}
+
+/* Mensaje de confirmación tras el envío */
+.contacto-confirmacion {
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--color-borde);
+    border-left: 4px solid #2e7d32;
+    border-radius: var(--radio-borde);
+    padding: var(--esp-md);
+    box-shadow: var(--sombra-suave);
+}
+
+/* Columna de datos de contacto */
+.contacto-datos {
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--esp-md);
+    box-shadow: var(--sombra-suave);
+}
+
+.dato {
+    margin-bottom: var(--esp-md);
+}
+
+.dato:last-child {
+    margin-bottom: 0;
+}
+
+.dato h3 {
+    font-size: var(--fs-base);
+    margin-bottom: 0.25rem;
+}
+
+.dato p {
+    margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   11. RESPONSIVE - breakpoint 768px
+   ========================================================== */
+@media screen and (max-width: 768px) {
+
+    :root {
+        --fs-h1: 1.875rem;
+        --fs-h2: 1.5rem;
+    }
+
+    /* Navbar */
+    .menu-hamburguesa {
+        display: block;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: var(--esp-sm);
+        padding: var(--esp-sm) 0;
+    }
+
+    /* Clase activada por JavaScript */
+    .nav-links.activo {
+        display: flex;
+    }
+
+    /* Footer */
+    .footer-contenido {
+        flex-direction: column;
+        gap: var(--esp-md);
+    }
+
+    /* Portada */
+    .confianza-lista {
+        flex-direction: column;
+        gap: var(--esp-md);
+    }
+
+    /* Tienda: filtros arriba, grid debajo */
+    .catalogo {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ficha de detalle: galería e info en una columna */
+    .ficha {
+        grid-template-columns: 1fr;
+        gap: var(--esp-md);
+    }
+
+    .ficha-especificaciones th {
+        width: 45%;
+    }
+
+    /* Contacto: formulario y datos en una columna */
+    .contacto-bloque {
+        grid-template-columns: 1fr;
+        gap: var(--esp-md);
+    }
+}

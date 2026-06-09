@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <!-- ===== Metadatos ===== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda de hardware Nexus Prime: servidores, equipos de red, almacenamiento y puestos de trabajo para empresas.">
+    <title>Tienda de Hardware | Nexus Prime</title>
+
+    <!-- ===== Tipografías ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- ===== Hojas de estilo ===== -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+    <!-- ==========================================================
+         CABECERA / NAVBAR
+         ========================================================== -->
+    <header class="cabecera">
+        <nav class="navbar" aria-label="Navegación principal">
+
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Nexus Prime - Technical &amp; Sales Solutions">
+            </a>
+
+            <button class="menu-hamburguesa" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
+                &#9776;
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+                <li><a href="soporte.html">Soporte</a></li>
+                <li><a href="empresa.html">Nosotros</a></li>
+                <li><a href="contacto.html" class="btn-contacto">Contacto</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ==========================================================
+             ENCABEZADO DE PÁGINA
+             ========================================================== -->
+        <section class="cabecera-pagina">
+            <div class="contenedor">
+                <h1>Tienda de hardware</h1>
+                <p>
+                    Equipamiento profesional para empresas: servidores, redes,
+                    almacenamiento y puestos de trabajo.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==========================================================
+             CATÁLOGO: FILTROS + GRID DE PRODUCTOS
+             ========================================================== -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="catalogo">
+
+                    <!-- ===== Panel lateral de filtros ===== -->
+                    <aside class="filtros" aria-label="Filtros de búsqueda">
+
+                        <div class="filtro-grupo">
+                            <label for="busqueda">Buscar producto</label>
+                            <input type="search" id="busqueda" placeholder="Ej. servidor, switch...">
+                        </div>
+
+                        <div class="filtro-grupo">
+                            <label for="filtro-categoria">Categoría</label>
+                            <select id="filtro-categoria">
+                                <option value="todas">Todas las categorías</option>
+                                <option value="servidores">Servidores</option>
+                                <option value="redes">Redes</option>
+                                <option value="almacenamiento">Almacenamiento</option>
+                                <option value="puestos">Puestos de trabajo</option>
+                            </select>
+                        </div>
+
+                        <div class="filtro-grupo">
+                            <label for="filtro-marca">Marca</label>
+                            <select id="filtro-marca">
+                                <option value="todas">Todas las marcas</option>
+                                <option value="dell">Dell</option>
+                                <option value="hp">HP</option>
+                                <option value="cisco">Cisco</option>
+                                <option value="synology">Synology</option>
+                            </select>
+                        </div>
+
+                    </aside>
+
+                    <!-- ===== Grid de productos ===== -->
+                    <div class="grid-tarjetas grid-productos">
+
+                        <article class="tarjeta tarjeta-producto" data-categoria="servidores" data-marca="dell">
+                            <img src="img/productos/servidor-1.webp" alt="Servidor de torre Dell para entornos empresariales">
+                            <span class="producto-categoria">Servidores</span>
+                            <h3>Servidor de torre Dell PowerEdge</h3>
+                            <p class="producto-precio">1.249,00 &euro;</p>
+                            <p class="producto-stock stock-disponible">En stock</p>
+                            <a href="det_productos.html?id=servidor-dell" class="btn btn-secundario">Ver especificaciones</a>
+                        </article>
+
+                        <article class="tarjeta tarjeta-producto" data-categoria="redes" data-marca="cisco">
+                            <img src="img/productos/firewall-1.webp" alt="Firewall perimetral Cisco para protección de red">
+                            <span class="producto-categoria">Redes</span>
+                            <h3>Firewall perimetral Cisco</h3>
+                            <p class="producto-precio">879,00 &euro;</p>
+                            <p class="producto-stock stock-disponible">En stock</p>
+                            <a href="det_productos.html?id=firewall-cisco" class="btn btn-secundario">Ver especificaciones</a>
+                        </article>
+
+                        <article class="tarjeta tarjeta-producto" data-categoria="puestos" data-marca="hp">
+                            <img src="img/productos/workstation-1.webp" alt="Puesto de trabajo profesional HP">
+                            <span class="producto-categoria">Puestos de trabajo</span>
+                            <h3>Workstation HP Z2</h3>
+                            <p class="producto-precio">1.099,00 &euro;</p>
+                            <p class="producto-stock stock-pedido">Bajo pedido</p>
+                            <a href="det_productos.html?id=workstation-hp" class="btn btn-secundario">Ver especificaciones</a>
+                        </article>
+
+                        <article class="tarjeta tarjeta-producto" data-categoria="redes" data-marca="cisco">
+                            <img src="img/productos/switch-1.webp" alt="Switch gestionado Cisco de 24 puertos">
+                            <span class="producto-categoria">Redes</span>
+                            <h3>Switch gestionado Cisco 24 puertos</h3>
+                            <p class="producto-precio">459,00 &euro;</p>
+                            <p class="producto-stock stock-disponible">En stock</p>
+                            <a href="det_productos.html?id=switch-cisco" class="btn btn-secundario">Ver especificaciones</a>
+                        </article>
+
+                        <article class="tarjeta tarjeta-producto" data-categoria="almacenamiento" data-marca="synology">
+                            <img src="img/productos/nas-1.webp" alt="Servidor NAS Synology de almacenamiento en red">
+                            <span class="producto-categoria">Almacenamiento</span>
+                            <h3>Servidor NAS Synology</h3>
+                            <p class="producto-precio">639,00 &euro;</p>
+                            <p class="producto-stock stock-disponible">En stock</p>
+                            <a href="det_productos.html?id=nas-synology" class="btn btn-secundario">Ver especificaciones</a>
+                        </article>
+
+                        <article class="tarjeta tarjeta-producto" data-categoria="servidores" data-marca="hp">
+                            <img src="img/productos/servidor-rack-1.webp" alt="Servidor en rack HP ProLiant">
+                            <span class="producto-categoria">Servidores</span>
+                            <h3>Servidor en rack HP ProLiant</h3>
+                            <p class="producto-precio">1.890,00 &euro;</p>
+                            <p class="producto-stock stock-agotado">Agotado</p>
+                            <a href="det_productos.html?id=servidor-hp" class="btn btn-secundario">Ver especificaciones</a>
+                        </article>
+
+                        <article class="tarjeta tarjeta-producto" data-categoria="puestos" data-marca="dell">
+                            <img src="img/productos/sobremesa-1.webp" alt="Equipo de sobremesa Dell OptiPlex">
+                            <span class="producto-categoria">Puestos de trabajo</span>
+                            <h3>Equipo de sobremesa Dell OptiPlex</h3>
+                            <p class="producto-precio">749,00 &euro;</p>
+                            <p class="producto-stock stock-disponible">En stock</p>
+                            <a href="det_productos.html?id=sobremesa-dell" class="btn btn-secundario">Ver especificaciones</a>
+                        </article>
+
+                        <article class="tarjeta tarjeta-producto" data-categoria="almacenamiento" data-marca="synology">
+                            <img src="img/productos/cabina-1.webp" alt="Cabina de almacenamiento Synology para copias de seguridad">
+                            <span class="producto-categoria">Almacenamiento</span>
+                            <h3>Cabina de almacenamiento Synology</h3>
+                            <p class="producto-precio">1.320,00 &euro;</p>
+                            <p class="producto-stock stock-pedido">Bajo pedido</p>
+                            <a href="det_productos.html?id=cabina-synology" class="btn btn-secundario">Ver especificaciones</a>
+                        </article>
+
+                    </div>
+
+                    <!-- Mensaje mostrado por JavaScript cuando ningún producto coincide -->
+                    <p class="sin-resultados" id="sin-resultados" hidden>
+                        No se han encontrado productos que coincidan con la búsqueda.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================================
+         FOOTER
+         ========================================================== -->
+    <footer class="footer">
+        <div class="footer-contenido">
+
+            <div class="footer-columna">
+                <h4>Nexus Prime</h4>
+                <p>Technical &amp; Sales Solutions</p>
+                <p>Servicios técnicos y venta de hardware para empresas.</p>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="rma.html">Devoluciones (RMA)</a></li>
+                    <li><a href="faq.html">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="tel:+34960000000">+34 960 000 000</a></li>
+                    <li><a href="mailto:soporte@nexusprime.es">soporte@nexusprime.es</a></li>
+                    <li>Valencia, España</li>
+                </ul>
+            </div>
+
+            <div class="footer-columna">
+                <h4>Legal y privacidad</h4>
+                <ul>
+                    <li><a href="aviso-legal.html">Aviso legal</a></li>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                    <li><a href="cookies.html">Política de cookies</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="footer-marca">
+            &copy; 2026 Nexus Prime. Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <!-- ===== Scripts ===== -->
+    <script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
